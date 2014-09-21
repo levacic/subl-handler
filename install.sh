@@ -1,13 +1,7 @@
 #!/bin/bash
 
 mkdir -p "$HOME/bin"
-cat > "$HOME/bin/subl-handler" <<EOF
-#!/bin/bash
-FILE=\$1
-FILE=\${FILE/subl\:\/\//}
-subl \$FILE
-EOF
-chmod u+x "$HOME/bin/subl-handler"
+cp "./subl-handler" "$HOME/bin/subl-handler"
 
 mkdir -p "$HOME/.local/share/applications/"
 cat > "$HOME/.local/share/applications/subl-handler.desktop" <<EOF
