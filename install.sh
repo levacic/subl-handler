@@ -1,16 +1,16 @@
 #!/bin/bash
 
-mkdir -p $HOME/bin
-cat > $HOME/bin/subl-handler <<EOF
+mkdir -p "$HOME/bin"
+cat > "$HOME/bin/subl-handler" <<EOF
 #!/bin/bash
 FILE=\$1
 FILE=\${FILE/subl\:\/\//}
 subl \$FILE
 EOF
-chmod u+x $HOME/bin/subl-handler
+chmod u+x "$HOME/bin/subl-handler"
 
-mkdir -p $HOME/.local/share/applications/
-cat > $HOME/.local/share/applications/subl-handler.desktop <<EOF
+mkdir -p "$HOME/.local/share/applications/"
+cat > "$HOME/.local/share/applications/subl-handler.desktop" <<EOF
 [Desktop Entry]
 Name=subl-handler
 Comment=Sublime Text URI scheme subl:// handler
@@ -23,5 +23,5 @@ Encoding=UTF-8
 Categories=Application;
 EOF
 
-update-desktop-database $HOME/.local/share/applications/
+update-desktop-database "$HOME/.local/share/applications/"
 xdg-mime default subl-handler.desktop x-scheme-handler/subl
